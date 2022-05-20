@@ -15,13 +15,12 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
- if a === b && b === c
-   :equilateral
- elsif a === b || b === c || a === c
-   :isosceles
- else
-   :scalene
- end
+  raise TriangleError, "Illegal triangle: [#{a}, #{b}, #{c}]" if
+  [a, b, c].max >= (a + b + c) / 2.0
+
+  return :equilateral if a == b and b == c
+  return :isosceles if a == b or b == c or a == c
+  return :scalene
 end
 
 # Error class used in part 2.  No need to change this code.
