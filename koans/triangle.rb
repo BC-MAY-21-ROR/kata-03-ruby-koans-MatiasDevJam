@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Triangle Project Code.
 
 # Triangle analyzes the lengths of the sides of a triangle
@@ -18,9 +20,10 @@ def triangle(a, b, c)
   raise TriangleError, "Illegal triangle: [#{a}, #{b}, #{c}]" if
   [a, b, c].max >= (a + b + c) / 2.0
 
-  return :equilateral if a == b and b == c
-  return :isosceles if a == b or b == c or a == c
-  return :scalene
+  return :equilateral if (a == b) && (b == c)
+  return :isosceles if (a == b) || (b == c) || (a == c)
+
+  :scalene
 end
 
 # Error class used in part 2.  No need to change this code.
